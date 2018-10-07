@@ -1,0 +1,31 @@
+# Fichier de config commun aux differentes applications clientes du Serveur de Config
+server:
+  application:
+    conf:
+      dir: ${user.dir}/logs
+  use-forward-headers: true
+  address: localhost
+  port: 8089
+
+spring:
+  application:
+    name: automatesw
+  session:
+    store-type: none
+webapp:
+  actuator:
+    username: admin
+    password: admin
+  security:
+    restPrefix: ${webapp.url.services}/rest
+  url:
+    contextRoot: /automatesw
+    services:  ${webapp.url.contextRoot}/services
+
+management:
+  context-path: /management
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: true
