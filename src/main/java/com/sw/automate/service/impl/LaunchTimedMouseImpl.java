@@ -20,7 +20,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LaunchTimedMouseImpl.class);
 
-    private static final Action DELAI_1S = new Delay(5000);
+    private static final Action DELAI_1S = new Delay(1500);
     @Override
     public void launchJourna() {
         List<Action> actionsAExecuter = new ArrayList<>();
@@ -90,21 +90,22 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(lancementSw);
         actionsAExecuter.add(delai2);
 
-        // click touch to start
-        Action clicktouchstart = new ActionSouris(493, 867, SourisActionEnum.CLICK, "clickTouch");
-        actionsAExecuter.add(clicktouchstart);
-        actionsAExecuter.add(DELAI_1S);
-
         // les pubs
         gestionPubsLancementSw(actionsAExecuter);
 
+        // click touch to start
+        Action clicktouchstart = new ActionSouris(1786, 457, SourisActionEnum.CLICK, "clickTouch");
+        actionsAExecuter.add(clicktouchstart);
+        actionsAExecuter.add(DELAI_1S);
+
+
         // ferme les achats
-        Action close = new ActionSouris(979, 904, SourisActionEnum.CLICK, "ferme fenetre d'achat");
+        Action close = new ActionSouris(928, 966, SourisActionEnum.CLICK, "ferme fenetre d'achat");
         actionsAExecuter.add(close);
         actionsAExecuter.add(DELAI_1S);
 
         // click ok journa
-        Action okJourna = new ActionSouris(1375, 285, SourisActionEnum.CLICK,"validation récompenses journa");
+        Action okJourna = new ActionSouris(1497,83, SourisActionEnum.CLICK,"validation récompenses journa");
         actionsAExecuter.add(okJourna);
         actionsAExecuter.add(DELAI_1S);
 
@@ -170,6 +171,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
 
         actionsAExecuter.add(clickDonjon);
         actionsAExecuter.add(DELAI_1S);
+        descendretableaudonjon(actionsAExecuter);
         actionsAExecuter.add(clickMagicM8);
         actionsAExecuter.add(DELAI_1S);
         actionsAExecuter.add(clickFriendList);
@@ -194,11 +196,12 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         // On descend en bas
         scroll(actionsAExecuter, DirectionEnum.BAS);
 
+        descendretableaudonjon(actionsAExecuter);
         Action clickMagic = new ActionSouris(x,y, SourisActionEnum.CLICK, "click magic");
         Action clickMagicM8 = new ActionSouris(1486,621, SourisActionEnum.CLICK, "click M8");
         Action clickFriendList = new ActionSouris(155, 904, SourisActionEnum.CLICK, "click friends");
         Action launchB10 = new ActionSouris(1571, 742, SourisActionEnum.CLICK, "launch battle M8");
-        Action delayLaunchB10 = new Delay(8000);
+        Action delayLaunchB10 = new Delay(10000);
         Action clickAuto = new ActionSouris(380, 971, SourisActionEnum.CLICK, "lance l'auto");
         Action waitB10Battle = new Delay(120000);
 
@@ -212,6 +215,17 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(delayLaunchB10);
         actionsAExecuter.add(clickAuto);
         actionsAExecuter.add(waitB10Battle);
+    }
+
+    private void descendretableaudonjon(List<Action> actionsAExecuter) {
+
+        Action clickMagic1 = new ActionSouris(1092,633, SourisActionEnum.CLICK, "click magic");
+        actionsAExecuter.add(clickMagic1);
+        actionsAExecuter.add(DELAI_1S);
+        // On descend en bas
+        scroll(actionsAExecuter, DirectionEnum.BAS);
+        actionsAExecuter.add(DELAI_1S);
+
     }
 
     private void gestionLancementGeantB10(List<Action> actionsAExecuter) {
@@ -230,12 +244,12 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
 
         actionsAExecuter.add(clickGeant);
         actionsAExecuter.add(DELAI_1S);
+        descendretableaudonjon(actionsAExecuter);
         actionsAExecuter.add(clickB10);
         actionsAExecuter.add(DELAI_1S);
         actionsAExecuter.add(clickFriendList);
         actionsAExecuter.add(DELAI_1S);
         actionsAExecuter.add(launchB10);
-        actionsAExecuter.add(delayLaunchB10);
     }
 
     private void gestionDuWish(List<Action> actionsAExecuter) {
@@ -304,7 +318,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
 
     private void gestionPubsLancementSw(List<Action> actionsAExecuter) {
         // validation des pubs
-        Action validationpub = new ActionSouris(801, 896, SourisActionEnum.CLICK, "validation pub");
+        Action validationpub = new ActionSouris(279, 945, SourisActionEnum.CLICK, "validation pub");
         Action delaipubs = new Delay(1000);
 
         for(int nbPub =0; nbPub <4; nbPub++) {
