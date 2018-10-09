@@ -37,7 +37,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
             case TUESDAY:
                 magicX = 525;
                 magicY = 724;
-                secondDungeonTimems = 120000;
+                secondDungeonTimems = 150000;
                 break;
             case WEDNESDAY:
                 magicX = 525;
@@ -71,12 +71,14 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(attenteDebut);
 
         // lancement nox
+        LOGGER.info("##############   Lancement NOX");
         Action lancementNox = new ActionSouris(237, 938, SourisActionEnum.DOUBLECLICK, "lancement nox");
         Action delai1 = new Delay(50000);
 
         actionsAExecuter.add(lancementNox);
         actionsAExecuter.add(delai1);
 
+        LOGGER.info("##############   Passage plein écran");
         Action pleinecran = new ActionSouris(1558, 156, SourisActionEnum.DOUBLECLICK, "lancement nox");
         Action delaiPE = new Delay(1000);
 
@@ -84,6 +86,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(delaiPE);
 
         // lancementSW
+        LOGGER.info("##############   Lancement SW");
         Action lancementSw = new ActionSouris(1225, 512, SourisActionEnum.CLICK, "lancement SW");
         Action delai2 = new Delay(45000);
 
@@ -91,42 +94,52 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(delai2);
 
         // les pubs
+        LOGGER.info("##############   Gestion des pubs");
         gestionPubsLancementSw(actionsAExecuter);
 
         // click touch to start
+        LOGGER.info("##############   Touch to start");
         Action clicktouchstart = new ActionSouris(1786, 457, SourisActionEnum.CLICK, "clickTouch");
         actionsAExecuter.add(clicktouchstart);
         actionsAExecuter.add(DELAI_1S);
 
 
         // ferme les achats
+        LOGGER.info("##############   Fermeture des achats");
         Action close = new ActionSouris(928, 966, SourisActionEnum.CLICK, "ferme fenetre d'achat");
         actionsAExecuter.add(close);
         actionsAExecuter.add(DELAI_1S);
 
         // click ok journa
+        LOGGER.info("##############   Validation récompenses journalieres");
         Action okJourna = new ActionSouris(1497,83, SourisActionEnum.CLICK,"validation récompenses journa");
         actionsAExecuter.add(okJourna);
         actionsAExecuter.add(DELAI_1S);
 
         // social point
+        LOGGER.info("##############   Récupère ses social point");
         gestionSocialPoint(actionsAExecuter);
 
         // récupération et sélection amis
+        LOGGER.info("##############   Envoi les socila points");
         gestionDesAmis(actionsAExecuter);
 
         // wish
+        LOGGER.info("##############   Fait le wish");
         gestionDuWish(actionsAExecuter);
 
         // magic
+        LOGGER.info("##############   Lancement magic 8");
         gestionLancementMagicB10(actionsAExecuter, magicX, magicY);
         validerRecompensesDonjon(actionsAExecuter);
 
         // second donjon :
+        LOGGER.info("##############   Lancement second donjon");
         lancementseconddonjon(actionsAExecuter, secondDungeonTimems);
         validerRecompensesDonjon(actionsAExecuter);
 
         // geant
+        LOGGER.info("##############   Lancement géant");
         gestionLancementGeantB10(actionsAExecuter);
 
 
