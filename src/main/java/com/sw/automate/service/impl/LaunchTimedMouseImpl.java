@@ -127,7 +127,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         // ferme les achats
         LOGGER.info("##############   Fermeture des achats 3 fois");
         for(int i =0; i < 3; i++) {
-            Action close = new ActionSouris(928, 966, SourisActionEnum.CLICK, "ferme fenetre d'achat "+i+" fois");
+            Action close = new ActionSouris(942, 1007, SourisActionEnum.CLICK, "ferme fenetre d'achat "+i+" fois");
             actionsAExecuter.add(close);
             actionsAExecuter.add(getDefaultDelai());
         }
