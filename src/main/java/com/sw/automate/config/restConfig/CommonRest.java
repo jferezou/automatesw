@@ -1,6 +1,7 @@
 package com.sw.automate.config.restConfig;
 
 import com.sw.automate.annotation.ServiceMethod;
+import com.sw.automate.service.LaunchFarming;
 import com.sw.automate.service.LaunchTimedMouse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
@@ -22,6 +23,9 @@ public class CommonRest {
 
     @Resource
     private LaunchTimedMouse launchTimedMouse;
+
+    @Resource
+    private LaunchFarming launchFarming;
     private static final Logger LOGGER = LoggerFactory.getLogger(CommonRest.class);
 
 
@@ -38,6 +42,17 @@ public class CommonRest {
 
     }
 
+    @GET
+    @Path("/automate/farming")
+    @Produces(MediaType.APPLICATION_JSON)
+    @ServiceMethod
+    @ApiResponses({@ApiResponse(code = 200, message = "")})
+    public Response launchFarming(@QueryParam("iterations") final int iterations) {
+
+        launchFarming.launchFarming(iterations);
+        return Response.ok().build();
+
+    }
 
     /**
      * Retourne des données
