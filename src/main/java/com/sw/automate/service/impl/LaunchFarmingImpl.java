@@ -59,6 +59,9 @@ public class LaunchFarmingImpl implements LaunchFarming {
             Action vendre = new ActionSouris(788, 834, SourisActionEnum.CLICK, "Vend gemme");
             actionsAExecuter.add(vendre);
             actionsAExecuter.add(getDefaultDelai());
+            Action okVente = new ActionSouris(808, 622, SourisActionEnum.CLICK, "ok vente gemme");
+            actionsAExecuter.add(okVente);
+            actionsAExecuter.add(getDefaultDelai());
 
             Action clickOk = new ActionSouris(836, 801, SourisActionEnum.CLICK, "click ok");
             actionsAExecuter.add(clickOk);
