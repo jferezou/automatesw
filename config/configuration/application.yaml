@@ -29,3 +29,14 @@ management:
 endpoints:
   shutdown:
     enabled: true
+action:
+  delay:
+    default: 1500
+    temps:
+      feu: 150000
+      eau: 120000
+      vent: 120000
+      ligth: 190000
+      dark: 120000
+      magic: 80000
+      geant: 120000
