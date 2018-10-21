@@ -138,6 +138,11 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(okJourna);
         actionsAExecuter.add(getDefaultDelai());
 
+        // valide les recompenses d'arene ou de guilde
+        Action recompenseGuArene = new ActionSouris(845,923, SourisActionEnum.CLICK,"validation récompenses journa");
+        actionsAExecuter.add(recompenseGuArene);
+        actionsAExecuter.add(getDefaultDelai());
+
         // social point
         LOGGER.info("##############   Récupère ses social point");
         gestionSocialPoint(actionsAExecuter);
