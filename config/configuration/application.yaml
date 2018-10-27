@@ -31,7 +31,7 @@ endpoints:
     enabled: true
 action:
   delay:
-    default: 1500
+    default: 2000
     temps:
       feu: 150000
       eau: 120000

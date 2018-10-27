@@ -184,7 +184,8 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         Action clickOkCoffre = new ActionSouris(951, 909, SourisActionEnum.CLICK, "click ok coffre");
         Action clickOk2Coffre = new ActionSouris(951, 807, SourisActionEnum.CLICK, "click ok coffre");
         Action clickNon = new ActionSouris(1262,572, SourisActionEnum.CLICK, "click non");
-        Action fermerpub = new ActionSouris(1612,193, SourisActionEnum.CLICK, "fermer pub");
+        Action fermerpub = new ActionSouris(1612,57, SourisActionEnum.CLICK, "fermer pub");
+        Action fermerpub2 = new ActionSouris(1612,193, SourisActionEnum.CLICK, "fermer pub");
         Action validerfermerpub = new ActionSouris(772, 699, SourisActionEnum.CLICK, "valider fermer pub");
 
 
@@ -198,9 +199,16 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         actionsAExecuter.add(getDefaultDelai());
         actionsAExecuter.add(clickNon);
         actionsAExecuter.add(getDefaultDelai());
-        actionsAExecuter.add(fermerpub);
-        actionsAExecuter.add(getDefaultDelai());
-        actionsAExecuter.add(validerfermerpub);
+        for(int i =0 ; i <3 ; i++) {
+            actionsAExecuter.add(fermerpub);
+            actionsAExecuter.add(getDefaultDelai());
+            actionsAExecuter.add(validerfermerpub);
+        }
+        for(int i =0 ; i <3 ; i++) {
+            actionsAExecuter.add(fermerpub2);
+            actionsAExecuter.add(getDefaultDelai());
+            actionsAExecuter.add(validerfermerpub);
+        }
         actionsAExecuter.add(getDefaultDelai());
 
     }
@@ -301,7 +309,7 @@ public class LaunchTimedMouseImpl implements LaunchTimedMouse {
         Action clickWish2 = new ActionSouris(1403, 954 ,SourisActionEnum.CLICK, "click wish");
         Action launchWhish = new ActionSouris(1454, 456, SourisActionEnum.CLICK, "launch wish");
         Action validerLaunch = new ActionSouris(788,642, SourisActionEnum.CLICK, "valide le lancement du wish");
-        Action delaiWish = new Delay(17000);
+        Action delaiWish = new Delay(25000);
         Action closeWhish = new ActionSouris(1768, 109, SourisActionEnum.CLICK, "close wiwh");
 
         actionsAExecuter.add(clickWishBatiment);
